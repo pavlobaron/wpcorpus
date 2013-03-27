@@ -1,6 +1,6 @@
 # wpcorpus - NLP corpus based on Wikipedia's full article dump
 
-wpcorpus is an "active" corpus for natural language processing. Active because it uses an index and not only text. And you will need some components in order to use it, so you can't just throw it onto your NLP library of choice. The implementation is in Python, though it would be easy to migrate it to whatever platform you like - based on the idea or even using some underlying technologies I use here. And the most important part of it being "active" is: I don't offer a download. You will have to create the corpus on your own, based on the instructions below.
+wpcorpus is an "active" corpus for natural language processing. Active because it uses an index and not only text. And you will need some components in order to use it, so you can't just throw it onto your NLP library of choice. The implementation is in/for Python 2.7, though it would be easy to migrate it to whatever platform you like - based on the idea or even using some underlying technologies I use here. And the most important part of it being "active" is: I don't offer a download. You will have to create the corpus on your own, based on the instructions below.
 
 Paths and file names are configured directly in the scripts right now. Of course it makes sense to move the configuration to command line parameters. But, well, I didn't yet.
 
@@ -18,9 +18,9 @@ Chunking is done in one step and without parallelisation. bin/chunk.sh is what y
 
 Processing is basically preparing N text files and indexing them. Both in combination build the later corpus. Text files are just extracts where all XML and unnecessary Wiki markup is stripped. The current solution works with 4 such files. The number 4 maps directly to the number of parallel workers doing the job and has no further meaning. You can configure it for more cores you want to use in bin/process.sh. I wouldn't recommend using a number higher than available cores, but it's up to you.
 
-The other part processing does is indexing. Index is built using [PyTables](http://www.pytables.org/moin), so you need to install it first. Also, during the processing, a RabbitMQ queue is used for communication between the processing script and the indexer. So, you need [RabbitMQ](http://www.rabbitmq.com).  
+The other part processing does is indexing. Index is built using [PyTables](http://www.pytables.org/moin), so you need to install it first. Also, during the processing, a RabbitMQ queue is used for communication between the processing script and the indexer. So, you need [RabbitMQ](http://www.rabbitmq.com) and [pika](https://github.com/pika/pika).  
 
-When you have all components installed and configured, run bin/index.sh first and bin/process.sh next. They work as a pair. Yes, indeed, I could have implemented a top script that takes care of firing up both and shuttding it down properly.
+You will also need some further Python libs: [lxml](http://lxml.de) and [SimpleConfigParser](http://www.decalage.info/en/python/configparser). When you have all components installed and configured, run bin/index.sh first and bin/process.sh next. They work as a pair. Yes, indeed, I could have implemented a top script that takes care of firing up both and shuttding it down properly.
 
 ## Usage
 

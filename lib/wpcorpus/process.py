@@ -22,8 +22,8 @@ import re
 import glob
 import gc
 import sys
-from rabbit import Publisher
-from props import Props
+from wpcorpus.rabbit import Publisher
+from wpcorpus.props import Props
 import pickle
 
 BASE_PATH = "/Users/pb/code/wpcorpus"

@@ -16,8 +16,8 @@
 # limitations under the License.
 #
 
-from rabbit import Consumer
-from props import Props
+from wpcorpus.rabbit import Consumer
+from wpcorpus.props import Props
 import pickle
 from tables import *
 
