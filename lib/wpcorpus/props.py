@@ -17,9 +17,9 @@
 #
 
 from argparse import ArgumentParser
-import SimpleConfigParser
+from simpleconfigparser import simpleconfigparser as SimpleConfigParser
 
-class Props(SimpleConfigParser.SimpleConfigParser):
+class Props(SimpleConfigParser):
     def expand_config(self):
         self.read(self.conf)
 
