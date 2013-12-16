@@ -26,7 +26,8 @@ from wpcorpus.rabbit import Publisher
 from wpcorpus.props import Props
 import pickle
 
-BASE_PATH = "/Users/pb/code/wpcorpus"
+from wpcorpus.config import BASE_PATH
+
 TMPF = "/tmp/wiki"
 
 def worker(filename, nr):

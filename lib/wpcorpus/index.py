@@ -21,7 +21,7 @@ from wpcorpus.props import Props
 import pickle
 from tables import *
 
-BASE_PATH = "/Users/pb/code/wpcorpus"
+from wpcorpus.config import BASE_PATH
 
 class IndexEntry(IsDescription):
     cat = StringCol(255)
