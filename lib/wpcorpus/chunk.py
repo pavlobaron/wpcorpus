@@ -18,7 +18,7 @@
 
 import os
 
-BASE_PATH = "/Users/pb/code/wpcorpus"
+from wpcorpus.config import BASE_PATH
 DUMP_FILE = "enwiki-20121201-pages-articles.xml"
 CHUNK_SIZE = 64000000
 STEP_SIZE = 1024
